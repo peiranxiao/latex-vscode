@@ -14,14 +14,15 @@
 	// }
 	
 	"Section": {
-        "prefix": "section",
+        "prefix": "sec",
         "body": [
             "\\section{${1:section name}}",
             "$0"
+			// "${0:$TM_SELECTED_TEXT}"
         ]
     },
 	"Align": {
-        "prefix": "align",
+        "prefix": "ali",
         "body": [
             "\\begin{align}",
             "\t$1",
@@ -54,7 +55,7 @@
             "\t\\item[$1] $0",
             "\\\\end{description}"
         ],
-        "desciption": "Description"
+        "description": "Description"
     },
     "Display Math — \\[ … \\]": {
         "prefix": "disp",
@@ -109,12 +110,12 @@
             "\\\\end{itemize}"
         ]
     },
-    "Listing": {
-        "prefix": "listing",
-        "body": [
-            "${1:Listing}~\\ref{${2:lst:}}$0"
-        ]
-    },
+    // "Listing": {
+    //     "prefix": "listing",
+    //     "body": [
+    //         "${1:Listing}~\\ref{${2:lst:}}$0"
+    //     ]
+    // },
     "Matrix": {
         "prefix": "mat",
         "body": [
@@ -130,7 +131,7 @@
     //     ]
     // },
     "Paragraph": {
-        "prefix": "paragraph",
+        "prefix": "par",
         "body": [
             "\\paragraph{${1:paragraph name}}",
             // "\\label{par:${2:${1/(\\w+)(\\W+$)?|\\W+/${1:?${1:/asciify/downcase}:_}/g}}}",
@@ -164,9 +165,8 @@
     // "Section": {
     //     "prefix": "section",
     //     "body": [
-    //         "${1:Section}~\\ref{${2:sec:}}$0"
+    //         "Section~$0"
     //     ],
-    //     "desciption": ""
     // },
     "Split": {
         "prefix": "spl",
@@ -186,7 +186,7 @@
         ]
     },
     "Sub Section": {
-        "prefix": "subsection",
+        "prefix": "subs",
         "body": [
             "\\subsection{${1:subsection name}}",
             // "\\label{sub:${2:${1/(\\w+)(\\W+$)?|\\W+/${1:?${1:/asciify/downcase}:_}/g}}}",
@@ -195,21 +195,21 @@
         ]
     },
     "Sub Sub Section": {
-        "prefix": "subsubsec",
+        "prefix": ["sss", "subsubs"],
         "body": [
             "\\subsubsection{${1:subsubsection name}}",
             // "\\label{ssub:${2:${1/(\\w+)(\\W+$)?|\\W+/${1:?${1:/asciify/downcase}:_}/g}}}",
             "${0:$TM_SELECTED_TEXT}",
             // "% subsubsection $2 (end)"
         ],
-        "desciption": "Sub Sub Section"
+        "description": "Sub Sub Section"
     },
     "Table": {
         "prefix": "table",
         "body": [
             "${1:Table}~\\ref{${2:tab:}}$0"
         ],
-        "desciption": "Table"
+        "description": "Table"
     },
     // "Tabular": {
     //     "prefix": "tab",
@@ -218,7 +218,7 @@
     //         "$0${2/((?<=[clr])([ |]*(c|l|r)))|./(?1: & )/g}",
     //         "\\\\end{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}"
     //     ],
-    //     "desciption": "Tabular"
+    //     "description": "Tabular"
     // },
 	"Tabular": {
         "prefix": "tab",
@@ -227,7 +227,7 @@
             "$0 ",
             "\\\\end{tabular}"
         ],
-        "desciption": "Tabular"
+        "description": "Tabular"
     },
     "\\begin{}…\\end{}": {
         "prefix": "begin",
@@ -257,7 +257,7 @@
         ]
     },
 	"Inline": {
-        "prefix": "inline",
+        "prefix": "in",
         "body": [
             "$$1$ $0"
         ]
@@ -271,31 +271,31 @@
         ]
     },
     "Cite": {
-        "prefix": "cite",
+        "prefix": "cit",
         "body": [
-            "\\cite{$0}"
+            "\\cite{$1}$0"
         ]
     },
-    "Citep": {
+    "citep": {
         "prefix": "citep",
         "body": [
-            "\\citep[$1][$2]{$0}"
+            "\\citep[$2][$3]{$1}$0"
         ]
     },
-    "Citet": {
+    "citet": {
         "prefix": "citet",
         "body": [
-            "\\citet[$1]{$0}"
+            "\\citet[$2]{$1}$0"
         ]
     },
     "Citeauthor": {
         "prefix": "citeauthor",
         "body": [
-            "\\citeauthor{$0}"
+            "\\citeauthor{$1}$0"
         ]
     },
     "Bibliography": {
-        "prefix": "bibliography",
+        "prefix": "bibl",
         "body": [
             "\\bibliography{$1}",
             "$0"
@@ -309,14 +309,14 @@
         ]
     },
     "Singlespacing": {
-        "prefix": "singlespacing",
+        "prefix": "sspacing",
         "body": [
             "\\singlespacing",
             "$0"
         ]
     },
     "Doublespacing": {
-        "prefix": "doublespacing",
+        "prefix": "dspacing",
         "body": [
             "\\doublespacing",
             "$0"
@@ -329,9 +329,22 @@
         ]
     },
     "Emph": {
-        "prefix": "emph",
+        "prefix": "emp",
         "body": [
-            "\\emph{${1:$TM_SELECTED_TEXT}} $0"
+            "\\emph{${1:$TM_SELECTED_TEXT}}$0"
         ]
     },
+    "fraction": {
+		"prefix": "frac",
+		"body": "\\frac{$1}{$2}$0",
+		"description": "fraction"
+	},
+	// "Displaymath": {
+    //     "prefix": "disp",
+    //     "body": [
+    //         "\\[",
+    //         "\t$0",
+    //         "\\]"
+    //     ]
+    // }
 }
