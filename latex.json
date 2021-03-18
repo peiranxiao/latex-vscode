@@ -131,7 +131,7 @@
     //     ]
     // },
     "Paragraph": {
-        "prefix": "par",
+        "prefix": "para",
         "body": [
             "\\paragraph{${1:paragraph name}}",
             // "\\label{par:${2:${1/(\\w+)(\\W+$)?|\\W+/${1:?${1:/asciify/downcase}:_}/g}}}",
@@ -271,29 +271,35 @@
         ]
     },
     "Cite": {
+        "prefix": "cite",
+        "body": [
+            "\\cite{$0}"
+        ]
+    },
+    "Cit": {
         "prefix": "cit",
         "body": [
-            "\\cite{$1}$0"
+            "\\cite{$0}$0"
         ]
     },
-    "citep": {
-        "prefix": "citep",
-        "body": [
-            "\\citep[$2][$3]{$1}$0"
-        ]
-    },
-    "citet": {
-        "prefix": "citet",
-        "body": [
-            "\\citet[$2]{$1}$0"
-        ]
-    },
-    "Citeauthor": {
-        "prefix": "citeauthor",
-        "body": [
-            "\\citeauthor{$1}$0"
-        ]
-    },
+    // "citep": {
+    //     "prefix": "citep",
+    //     "body": [
+    //         "\\citep[$2][$3]{$1}$0"
+    //     ]
+    // },
+    // "citet": {
+    //     "prefix": "citet",
+    //     "body": [
+    //         "\\citet[$2]{$1}$0"
+    //     ]
+    // },
+    // "Citeauthor": {
+    //     "prefix": "citeauthor",
+    //     "body": [
+    //         "\\citeauthor{$1}$0"
+    //     ]
+    // },
     "Bibliography": {
         "prefix": "bibl",
         "body": [
@@ -339,12 +345,4 @@
 		"body": "\\frac{$1}{$2}$0",
 		"description": "fraction"
 	},
-	// "Displaymath": {
-    //     "prefix": "disp",
-    //     "body": [
-    //         "\\[",
-    //         "\t$0",
-    //         "\\]"
-    //     ]
-    // }
 }
