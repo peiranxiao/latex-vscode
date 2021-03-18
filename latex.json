@@ -18,7 +18,6 @@
         "body": [
             "\\section{${1:section name}}",
             "$0"
-			// "${0:$TM_SELECTED_TEXT}"
         ]
     },
 	"Align": {
@@ -335,12 +334,4 @@
             "\\emph{${1:$TM_SELECTED_TEXT}} $0"
         ]
     },
-	// "Displaymath": {
-    //     "prefix": "disp",
-    //     "body": [
-    //         "\\[",
-    //         "\t$0",
-    //         "\\]"
-    //     ]
-    // }
 }
