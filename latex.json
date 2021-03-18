@@ -186,7 +186,7 @@
         ]
     },
     "Sub Section": {
-        "prefix": "subs",
+        "prefix": ["subs", "ss"],
         "body": [
             "\\subsection{${1:subsection name}}",
             // "\\label{sub:${2:${1/(\\w+)(\\W+$)?|\\W+/${1:?${1:/asciify/downcase}:_}/g}}}",
@@ -274,12 +274,6 @@
         "prefix": "cite",
         "body": [
             "\\cite{$0}"
-        ]
-    },
-    "Cit": {
-        "prefix": "cit",
-        "body": [
-            "\\cite{$0}$0"
         ]
     },
     // "citep": {
