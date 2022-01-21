@@ -30,6 +30,14 @@
 			"$0"
         ]
     },
+    "Align*": {
+        "prefix": "ali",
+        "body": [
+            "\\begin{align*}",
+            "\t${0:${TM_SELECTED_TEXT}}",
+            "\\end{align*}"
+        ]
+    },
     "Cases": {
         "prefix": "cas",
         "body": [
@@ -58,12 +66,11 @@
         "description": "Description"
     },
     "Display Math — \\[ … \\]": {
-        "prefix": "disp",
+        "prefix": ["disp"],
         "body": [
             "\\[",
-            "\t$TM_SELECTED_TEXT$1",
-            "\\]",
-			"$0"
+            "\t$TM_SELECTED_TEXT$0",
+            "\\]"
         ]
     },
     "Enumerate": {
@@ -220,20 +227,20 @@
     //     ],
     //     "description": "Tabular"
     // },
-	"Tabular": {
-        "prefix": "tab",
-        "body": [
-            "\\\\begin{tabular}{${2:c}}",
-            "$0 ",
-            "\\\\end{tabular}"
-        ],
-        "description": "Tabular"
-    },
+	// "Tabular": {
+    //     "prefix": "tab",
+    //     "body": [
+    //         "\\\\begin{tabular}{${2:c}}",
+    //         "$0 ",
+    //         "\\\\end{tabular}"
+    //     ],
+    //     "description": "Tabular"
+    // },
     "\\begin{}…\\end{}": {
         "prefix": "begin",
         "body": [
             "\\\\begin{${1:env}}",
-            "\t${1/(enumerate|itemize|list)|(description)|.*/(?1:\\item )(?2:\\item)/}$0",
+            "\t$0",
             "\\\\end{${1:env}}"
         ]
     },
@@ -257,7 +264,7 @@
         ]
     },
 	"Inline": {
-        "prefix": "in",
+        "prefix": ["in"],
         "body": [
             "$$1$ $0"
         ]
@@ -335,18 +342,54 @@
         ]
     },
     "fraction": {
-		"prefix": "frac",
+		"prefix": ["frac"],
 		"body": "\\frac{$1}{$2}$0",
 		"description": "fraction"
 	},
     "int": {
-		"prefix": "\\int",
+		"prefix": ["int", "@#"],
 		"body": "\\int_{$1}^{$2}$0",
 		"description": "integral"
 	},
     "sum": {
-		"prefix": "\\sum",
+		"prefix": ["sum", "@!"],
 		"body": "\\sum_{$1}^{$2}$0",
 		"description": "summation"
 	},
+    "norm": {
+		"prefix": ["lV", "@||"],
+		"body": "\\left\\lVert $1 \\right\\rVert $0",
+		"description": "norm"
+	},
+    "abs": {
+		"prefix": ["lv", "@|"],
+		"body": "\\left\\lvert $1 \\right\\rvert $0",
+		"description": "abstract value"
+	},
+    "inner": {
+		"prefix": ["la", "@<"],
+		"body": "\\left\\langle $1, $2 \\right\\rangle $0",
+		"description": "Inner product"
+	},
+    "exp": {
+		"prefix": ["exp"],
+		"body": "\\exp\\left( $1 \\right) $0",
+		"description": "exponential"
+	},
+
+    "table": {
+        "prefix": "@tab",
+        "body": [
+            "\\begin{table}[htbp]",
+            "\t\\centering\n\t\\caption{$1}",
+            "\t\\label{tab:$2}",
+            "\t\\begin{tabular}{ccc}",
+            "\t\t\\toprule",
+            "\t\t  &   &   \\\\\\\\ \n\t\t\\midrule",
+            "\t\t  &   &   \\\\\\\\",
+            "\t\t  &   &   \\\\\\\\ \n\t\t\\bottomrule",
+            "\t\\end{tabular}",
+            "\\end{table}\n"
+        ]
+    }
 }
